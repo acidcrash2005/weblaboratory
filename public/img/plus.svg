@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="49" viewBox="0 0 50 49">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #3d6889;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+        font-size: 90px;
+        fill: #73d0f4;
+        font-family: "Open Sans";
+        font-weight: 300;
+      }
+    </style>
+  </defs>
+  <text id="_" data-name="+" class="cls-1" x="-0.501" y="56.498">+</text>
+</svg>

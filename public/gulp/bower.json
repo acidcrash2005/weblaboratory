@@ -1,0 +1,21 @@
+{
+  "name": "shapework",
+  "main": "index.js",
+  "authors": [
+    "Gennaiy Karachentsev <inof@weblaboratory.in.ua>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "*",
+    "jquery": "3.*",
+    "jquery-ui": "*"  
+  }
+}
