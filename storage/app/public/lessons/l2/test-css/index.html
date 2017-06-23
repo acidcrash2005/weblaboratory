@@ -1,0 +1,190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<title></title>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jQuizler.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/jQuizler.css" />
+
+
+</head>
+
+<body>
+    <div id="jQuizler" class="main-quiz-holder">
+        <h3>Тест по CSS</h3>
+        <button class="btn btn-large">Старт</button>
+    </div>
+    <script type="text/javascript">
+var questions = [
+    {
+        type: "choose",
+        question: "<h3>Какой будет цвет у слова 'blah'?</h3><pre>CSS:<br />ul&nbsp;li&nbsp;em&nbsp;{color:&nbsp;red;}<br /><br />HTML:<br />&lt;ul&gt;<br />&lt;li&gt;blah&lt;/li&gt;<br />&lt;/ul&gt;</pre>",
+        answers: [
+            "Цвет по умолчанию",
+            "Красный",
+            "Чёрный",
+			"Фиолетовый"
+        ],
+        correct: [1]
+    },
+    {
+        type: "choose",
+        question: "<h3>Какой будет цвет у слова 'blah'?</h3><pre>CSS:<br />ul&nbsp;li&nbsp;em&nbsp;{color:&nbsp;red;}<br /><br />HTML:<br />&lt;ul&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;&nbsp;blah&nbsp;&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;</pre>",
+        answers: [
+            "Цвет по умолчанию",
+            "Красный",
+            "Чёрный",
+			"Фиолетовый"
+        ],
+        correct: [2]
+    },
+    {
+        type: "choose",
+        question: "<h3>Какой будет цвет у слова “blah”?</h3><pre>CSS:<br />ul&gt;li&gt;em&nbsp;{color:&nbsp;red;}<br /><br />HTML:<br />&lt;ul&gt;&lt;li&gt;&lt;strong&gt;&lt;em&gt;&nbsp;blah&nbsp;&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;</pre>",
+        answers: [
+            "Цвет по умолчанию",
+            "Красный",
+            "Чёрный",
+			"Фиолетовый"
+        ],
+        correct: [1]
+    },
+	{
+        type: "choose",
+        question: "<h3>Какой будет цвет у слова “blah”?</h3><pre>CSS:<br />ul&gt;li&gt;em&nbsp;{color:&nbsp;red;}<br /><br />HTML:<br />&lt;ul&gt;&lt;li&gt;&lt;em&gt;&nbsp;blah&nbsp;&lt;/em&gt;&lt;/li&gt;&lt;/ul&gt;</pre>",
+        answers: [
+            "Цвет по умолчанию",
+            "Красный",
+            "Чёрный",
+			"Фиолетовый"
+        ],
+        correct: [2]
+    },
+    {
+        type: "choose",
+        question: "<h3>Валиден ли следующий HTML код?</h3><pre>&lt;div&nbsp;id=\"fontstyle\"&gt;Hello&nbsp;there&lt;/div&gt;<br />&lt;div&nbsp;id=\"fontstyle\"&gt;How&nbsp;are&nbsp;you?&lt;/div&gt;</pre>",
+        answers: [
+            "да",
+            "нет"
+        ],
+        correct: [2]
+    },
+    {
+        type: "choose",
+        question: "<h3>Валиден ли следующий HTML код?</h3><pre>&lt;div&nbsp;class=\"highlight\"&gt;Important&lt;/div&gt;<br />&lt;span&nbsp;class=\"highlight\"&gt;stuff&lt;/span&gt;</pre>",
+        answers: [
+            "да",
+            "нет"
+        ],
+        correct: [1]
+    },
+	{
+        type: "choose",
+        question: "<h3>Какой будет цвет у слова 'blah'?</h3><pre>CSS:<br />.highlight&nbsp;{color:&nbsp;red;}<br /><br />HTML:<br />&lt;span&nbsp;class=\"highlight\"&gt;blah&lt;/span&gt;</pre>",
+        answers: [
+            "Цвет по умолчанию",
+            "Красный",
+            "Чёрный",
+			"Фиолетовый"
+        ],
+        correct: [2]
+    },
+    {
+        type: "choose",
+        question: "<h3>Какое CSS свойство используется для определения стиля при наведении на ссылку курсора мыши, но при этом элемент еще не активирован?</h3>",
+        answers: [
+            "a:hover",
+            "a:link",
+            "a:visited",
+			"a:vlink"
+        ],
+        correct: [1]
+    },
+    {
+        type: "choose",
+        question: "<h3>Какое CSS свойство используется для изменения стиля самой ссылки?</h3>",
+        answers: [
+            "a:hover",
+            "a:link",
+            "a:visited",
+			"a:vlink"
+        ],
+        correct: [2]
+    },
+	{
+        type: "choose",
+        question: "<h3>Какое CSS свойство используется для изменения стиля уже кликнутой ссылки? </h3>",
+        answers: [
+            "a:hover",
+            "a:link",
+            "a:visited",
+			"a:vlink"
+        ],
+        correct: [3]
+    },
+    {
+        type: "choose",
+        question: "<h3>Как будут оформлены link 1, link 2, link 3?</h3><pre>CSS:<br />li&nbsp;{<br />display:&nbsp;inline;<br />margin:&nbsp;0px&nbsp;25px&nbsp;0px&nbsp;25px;<br />padding:&nbsp;10px&nbsp;50px&nbsp;10px&nbsp;50px;<br />border:&nbsp;thin&nbsp;solid&nbsp;#000000;<br />}<br /><br />HTML:<br />&lt;ul&gt;<br />&lt;li&gt;link&nbsp;1&lt;/li&gt;<br />&lt;li&gt;link&nbsp;2&lt;/li&gt;<br />&lt;li&gt;link&nbsp;3&lt;/li&gt;<br />&lt;/ul&gt;</pre>",
+        answers: [
+            "на одной строке, помещённые в тонкие чёрные рамки, шириной 100 px, высотой 20 px;",
+            "на одной строке, помещённые в тонкие чёрные рамки, шириной 50 px, высотой 10 px;",
+            "на трёх строках, помещённые в тонкие чёрные рамки, шириной 100 px, высотой 50 px;",
+			"на трёх строках, помещённые в тонкие чёрные рамки, шириной 50 px, высотой 25 px;"
+        ],
+        correct: [1]
+    },
+    {
+        type: "choose",
+        question: "<h3>Какой из стилей подключения css верен?</h3>",
+        answers: [
+            "&lt;link&nbsp;href=\"styles.css\"&nbsp;type=\"stylesheet\"&gt;",
+            "@import&nbsp;url(\"styles.css\")",
+            "&lt;stylesheet&nbsp;href=\"styles.css\"&nbsp;/&gt;",
+			"&lt;style&nbsp;href=\"styles.css\"&nbsp;/&gt;&nbsp;",
+			"@import&nbsp;css(\"styles.css\")"
+        ],
+        correct: [2]
+    },
+	{
+        type: "choose",
+        question: "<h3>Как задать зелёный фон всем элементам h1?</h3>",
+        answers: [
+            "h1 {background: green;}",
+            "h1 {bgcolor: green;}",
+            "h1{backgroundcolor: green;}"
+        ],
+        correct: [1]
+    },
+    {
+        type: "choose",
+        question: "<h3>Где будет располагаться изображение по отношению к тексту?</h3><pre>CSS:<br />.picture&nbsp;{float:&nbsp;right;}<br /><br />HTML:<br />Text&nbsp;&lt;img&nbsp;src=\"image.jpg\"&nbsp;alt=\"photo&nbsp;of&nbsp;stuff\"&nbsp;class=\"picture\"&nbsp;/&gt;&nbsp;text</pre>",
+        answers: [
+            "Разделять текст",
+            "Текст слева от изображения",
+            "Текст справа от изображения"
+        ],
+        correct: [2]
+    },
+    {
+        type: "choose",
+        question: "<h3>Какими будет шрифты для разных браузеров?</h3><pre>HTML:<br /><br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;title&gt;Fake&nbsp;Website&lt;/title&gt;<br />&lt;style&nbsp;type=\"text/css\"&nbsp;media=\"all\"&gt;<br />body{&nbsp;font-family:&nbsp;Courier;&nbsp;}<br />&lt;/style&gt;<br />&lt;style&nbsp;type=\"text/css\"&nbsp;media=\"safari\"&gt;<br />body{&nbsp;font-family:&nbsp;Verdana;&nbsp;}<br />&lt;/style&gt;<br />&lt;style&nbsp;type=\"text/css\"&nbsp;media=\"ie\"&gt;<br />body{&nbsp;font-family:&nbsp;Arial;&nbsp;}<br />&lt;/style&gt;<br />&lt;style&nbsp;type=\"text/css\"&nbsp;media=\"firefox\"&gt;<br />body{&nbsp;font-family:&nbsp;Geneva;&nbsp;}<br />&lt;/style&gt;<br />&lt;style&nbsp;type=\"text/css\"&nbsp;media=\"opera\"&gt;<br />body{&nbsp;font-family:&nbsp;Georgia;&nbsp;}<br />&lt;/style&gt;<br />&nbsp;<br />&lt;/head&gt;<br />&lt;body&gt;<br />Text&nbsp;text&nbsp;text<br />&lt;/body&gt;<br />&lt;/html&gt;</pre>",
+        answers: [
+            "Safari: Verdana, Internet Explorer: Arial, Firefox: Geneva, Opera: Georgia;",
+            "Safari: Courier, Internet Explorer: Courier, Firefox: Courier, Opera: Courier;"
+        ],
+        correct: [2]
+    }
+];
+
+$("document").ready(function(){
+    $("#jQuizler").jQuizler(questions);
+});
+
+</script>
+</body>
+</html>
