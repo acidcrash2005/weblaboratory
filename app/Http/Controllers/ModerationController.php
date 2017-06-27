@@ -102,8 +102,8 @@ class ModerationController extends Controller
 
 
     public function status(Request $request){
-
         $HomeworkDialog = HomeworkDialog::where('id','=',$request->dialog_id)->first();
+
         $HomeworkDialog->status = $request->status;
         if ($HomeworkDialog->save()){
             return redirect($request->redirect);

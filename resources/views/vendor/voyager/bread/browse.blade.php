@@ -33,9 +33,6 @@
                                         <td>
                                             <?php $options = json_decode($row->details); ?>
                                             @if($row->type == 'image')
-                                                <?
-                                                    Voyager::image( $data->{$row->field} )
-                                                ?>
                                                 <img src="@if( strpos($data->{$row->field}, 'http://') === false && strpos($data->{$row->field}, 'https://') === false){{ Voyager::image( $data->{$row->field} ) }}@else{{ $data->{$row->field} }}@endif" style="width:100px">
                                             @elseif($row->type == 'select_multiple')
                                                 @if(property_exists($options, 'relationship'))

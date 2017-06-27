@@ -27,6 +27,7 @@ class UserpageController extends Controller
     public function index(){
 
         $HomeworkDialog = HomeworkDialog::where('user_id','=', Auth::user()->id)->orderBy('new_answer','desc')->get();
+
         $onAir = Vebinars::where('acess','=', 2)->orderBy('start','desc')->get();
 
         if (Auth::user()->role_id != 1 && Auth::user()->role_id != 6){

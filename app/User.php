@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\HomeworkDialog as HomeworkDialog;
+use App\Lesson as Lesson;
 
 class User extends Authenticatable
 {
@@ -52,5 +54,6 @@ class User extends Authenticatable
     public function isBase(){
         return (\Auth::check() && \Auth::user()->role_id == 3 || \Auth::user()->role_id == 1 || \Auth::user()->role_id == 4 || \Auth::user()->role_id == 5 || \Auth::user()->role_id == 6);
     }
+
 
 }

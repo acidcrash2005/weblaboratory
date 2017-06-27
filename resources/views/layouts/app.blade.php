@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/main.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
+    
+    <!-- Code style -->
+    <link rel="stylesheet" href="{{ url('/') }}/css/prism.css">
 
 
     <!-- Scripts -->
@@ -166,6 +169,7 @@
     <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/js/jquery.fancybox.min.js"></script>
     <script src="{{ url('/') }}/js/jQuizler.js"></script>
+    <script type="text/javascript" src="{{ url('/') }}/js/prism.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/js/script.js"></script>
 
     <!--[if lt IE 9]>

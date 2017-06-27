@@ -1,35 +1,13 @@
 @extends('voyager::master')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ config('voyager.assets_path') }}/css/ga-embed.css">
+    <link rel="stylesheet" type="text/css" href="{{ voyager_asset('css/ga-embed.css') }}">
 @stop
 
 @section('content')
     <div class="page-content">
-        <div class="alerts">
-            @foreach ($alerts as $alert)
-                <div class="alert alert-{{ $alert->type }} alert-name-{{ $alert->name }}">
-                    @foreach($alert->components as $component)
-                        <?php echo $component->render(); ?>
-                    @endforeach
-                </div>
-            @endforeach
-        </div>
-        <div class="widgets">
-            @foreach(config('voyager.widgets', []) as $element)
-                <div class="panel widget center bgimage" style="background-image:url({{ config('voyager.assets_path') . $element['image']}});">
-                    <div class="dimmer"></div>
-                    <div class="panel-content">
-                        <i class={{ $element['icon'] }}></i>
-                        <?php $count = $element['model']::count(); ?>
-                        <h4>{{ $count . ' ' .  $element['name'] }}(s)</h4>
-                        <p>You have {{ $count . ' ' .  $element['name'] }}(s) in your database. Click on button below to view all {{ lcfirst($element['name']) }}s.</p>
-                        <a href="{{ $element['url'] }}" class="btn btn-primary">View All {{ $element['name'] }}s</a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        <div style="clear:both"></div>
+        @include('voyager::alerts')
+        @include('voyager::dimmers')
         <div style="padding:15px;">
             <?php $google_analytics_client_id = Voyager::setting("google_analytics_client_id"); ?>
             @if (isset($google_analytics_client_id) && !empty($google_analytics_client_id))
@@ -126,14 +104,14 @@
             }(window, document, 'script'));
         </script>
 
-        <script src="{{ config('voyager.assets_path') }}/js/ga-embed/chart.min.js"></script>
-        <script src="{{ config('voyager.assets_path') }}/js/ga-embed/moment.min.js"></script>
+        <script src="{{ voyager_asset('js/ga-embed/chart.min.js') }}"></script>
+        <script src="{{ voyager_asset('js/ga-embed/moment.min.js') }}"></script>
         <!-- Include the ViewSelector2 component script. -->
-        <script src="{{ config('voyager.assets_path') }}/js/ga-embed/view-selector2.js"></script>
+        <script src="{{ voyager_asset('js/ga-embed/view-selector2.js') }}"></script>
         <!-- Include the DateRangeSelector component script. -->
-        <script src="{{ config('voyager.assets_path') }}/js/ga-embed/date-range-selector.js"></script>
+        <script src="{{ voyager_asset('js/ga-embed/date-range-selector.js') }}"></script>
         <!-- Include the ActiveUsers component script. -->
-        <script src="{{ config('voyager.assets_path') }}/js/ga-embed/active-users.js"></script>
+        <script src="{{ voyager_asset('js/ga-embed/active-users.js') }}"></script>
 
         <script>
             // == NOTE ==
@@ -149,7 +127,7 @@
                  */
                 gapi.analytics.auth.authorize({
                     container: 'embed-api-auth-container',
-                    clientid: '<?= $google_analytics_client_id; ?>'
+                    clientid: '{{ $google_analytics_client_id }}'
                 });
 
 

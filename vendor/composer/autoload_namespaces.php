@@ -7,10 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+    'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
     'Laravelrus\\LocalizedCarbon\\' => array($vendorDir . '/laravelrus/localized-carbon/src'),
-    'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
-    'JakubOnderka\\PhpConsoleColor' => array($vendorDir . '/jakub-onderka/php-console-color/src'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
