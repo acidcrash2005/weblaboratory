@@ -3,7 +3,6 @@
 @section('content')
    <div class="inner-container__main">
       <header><h2 class="inner-container__main-title"><a href="{{ url()->previous() }}"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></a> Модерация</h2></header>
-
       <div class="main-container">
          <div class="new-mesages-block">
             <h2 class="lesson-description__title">Новые сообщения</h2>
@@ -12,6 +11,7 @@
                <tr>
                   <th>#</th>
                   <th>Ползователь</th>
+                  <th>Дата</th>
                   <th>Действие</th>
                   <th>Курс</th>
                   <th>Название урока</th>
@@ -32,6 +32,11 @@
                         <td>
                            <img src="/img/{{$dialog->user->avatar}}?w=40" alt=""> <a href="{{ url('/moderation/user_dialogs/') }}/{{$dialog->user->id}}" >{{ $dialog->user->name }}</a>
                         </td>
+
+                         <td>
+                            {{$dialog->created_at->format('m-d-Y H:i')}}
+                         </td>
+
                         <td>
                            <a href="{{ url('/moderation/dialog') }}/{{$dialog->id}}" class="btn btn-success ">
                               ответить

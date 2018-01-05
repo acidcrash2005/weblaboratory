@@ -6,9 +6,7 @@
 }
 
 /* MENU BLOCK */
-.b-menu li + li{
-  display: none;
-}
+
 
 /* User Page */
 body{
@@ -165,6 +163,8 @@ body{
   }
   .lesson-description &{
     justify-content: flex-start;
+    align-items: flex-end;
+
     clear: both;
     padding-top: 15px;
 
@@ -706,9 +706,7 @@ CSS Webflow
   transition: background-color 200ms ease;
 }
 
-.dropdown-menu:hover {
-  background-color: rgba(0, 0, 0, .06);
-}
+
 
 .menu-link {
   padding-right: 10px;
@@ -2658,4 +2656,87 @@ html.w-mod-js *[data-ix="paintwall"] {
 
 .orders-table{
   background: #fff;
+}
+
+// timer
+.offer{
+  margin: 0 10px;
+
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
+}
+.timer-emd-offer{
+  display: flex;
+  align-items: center;
+  .timer-dig{
+    font-size: 13px;
+    background: #f77373;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 3px;
+    text-align: center;
+    padding: 1px 0;
+    width: 39px;
+
+    div{
+      font-size: 20px;
+      line-height: 10px;
+      padding-top: 7px;
+    }
+  }
+}
+
+
+.b-scroll-block{
+  color: #ccc;
+  h2{
+    font: 300 21px Roboto;
+  }
+
+  .slider-block{
+    position: relative;
+  }
+
+  .swiper-button-next, .swiper-button-prev{
+    top: 0;
+    width: 50px;
+    height: 100%;
+    margin-top: 0px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    left: 0px;
+    right: auto;
+  }
+
+  .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+    right: 0px;
+    left: auto;
+  }
+
+  .swiper-pagination{
+    left: auto;
+    right: 0;
+    bottom: auto;
+    top: -30px;
+    width: auto;
+
+    .swiper-pagination-bullet{
+      border-radius: 0;
+      width: 15px;
+      height: 2px;
+      background: #fff;
+      margin-left: 3px;
+    }
+    .swiper-pagination-bullet-active{
+      background: #ffffff;
+    }
+  }
+}
+
+.bay-button{
+  padding: 0 23px;
+  padding-bottom: 15px;
 }

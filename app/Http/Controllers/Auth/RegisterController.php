@@ -67,7 +67,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         \Mail::to($data['email'])->send(new RegisterMail($data));
         \Mail::to(\Voyager::setting('email'))->send(new NewuserMail($data));
 

@@ -8,8 +8,8 @@
     <title>Новый заказ</title>
 </head>
 <body>
-<h2>Новый заказа от {{ $data['name'] }}</h2>
-<p><strong>Товар:</strong> {{ $data['title'] }} - {{ $data['price'] }}</p>
+<h2>Новый заказа от {{ $data->email }}</h2>
+<p><strong>Товар:</strong> {{ $data['title'] }} - {{ $data['price'] }} </p>
 <p><strong>Email:</strong> {{ $data['email'] }}</p>
 <p><strong>Телефон:</strong> {{ $data['phone'] }}</p>
 

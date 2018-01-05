@@ -3,6 +3,13 @@
 @section('content')
 <div class="inner-container__main">
    <header><h2 class="inner-container__main-title">Вебинары</h2></header>
+    @if(!Auth::user()->isPremium() && !Auth::user()->isVip() && !Auth::user()->isBase())
+        <br><br>
+        <div class="text-center">
+            <a href="https://weblaboratory.in.ua/sale2017/" target="_blank"><img src="/img/sale1.png?w=700" alt=""></a>
+        </div>
+        <br><br>
+    @endif
     <div class="course-list">
         @foreach ($posts as $course)
             <div class="b-event">

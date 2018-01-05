@@ -27,4 +27,8 @@ class User extends AuthUser
     {
         $this->attributes['created_at'] = Carbon::parse($value)->format('Y-m-d H:i:s');
     }
+
+    public function roleId(){
+        return $this->belongsTo('App\Role');
+    }
 }

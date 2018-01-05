@@ -1,4 +1,5 @@
         @foreach ($courses as $course)
+
             <div class="b-event">
                 <div class="b-wraper">
                     <div class="b-title @if (!empty($course->course->icon)) icon-true @endif" style="background-color: {{ $course->course->color }}; color: @if ($course->course->text_color == 0) #000 @else #fff @endif;">
@@ -16,6 +17,7 @@
                         <? $taglessBody = strip_tags($course->course->text); ?>
                         {!! $taglessBody !!}
                     </div>
+
                     <div class="b-type">
                         <span class="start"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{ Carbon\Carbon::parse($course->course->start)->format('d.m.Y') }}</span>
 
@@ -38,4 +40,5 @@
                     </div>
                 </div>
             </div>
+
         @endforeach

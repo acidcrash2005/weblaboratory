@@ -169,6 +169,7 @@ return [
         TCG\Voyager\VoyagerServiceProvider::class,
         'Jenssegers\Date\DateServiceProvider',
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         //
 
@@ -232,6 +233,7 @@ return [
         'Widget'       => Arrilot\Widgets\Facade::class,
         'AsyncWidget'  => Arrilot\Widgets\AsyncFacade::class,
         'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

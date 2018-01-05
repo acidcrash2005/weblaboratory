@@ -52,6 +52,7 @@
                 <li class="side-bar__menu-item {{ Request::segment(1) === 'vebinars' ? 'active_menu' : null }}"><a href="{{ url('/vebinars') }}" class="side-bar__menu-item-link"><i class="fa fa-flask" aria-hidden="true"></i> Вебинары</a></li>
 
                 <li class="side-bar__menu-item {{ Request::segment(1) === 'orders' ? 'active_menu' : null }}"><a href="{{ url('/orders') }}" class="side-bar__menu-item-link"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Заказы</a></li>
+                <li class="side-bar__menu-item  {{ Request::segment(1) === 'user_products' ? 'active_menu' : null }}"><a href="{{ url('/user_products') }}" class="side-bar__menu-item-link"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Покупки</a></li>
 
                 @if (Auth::user()->role_id == 6 || Auth::user()->role_id == 1)
                     <li class="side-bar__menu-item"><a href="{{ url('/moderation') }}" class="side-bar__menu-item-link {{ Request::segment(1) === 'vebinars' ? 'moderation' : null }}"><i class="fa fa-pencil" aria-hidden="true"></i> Модерирование
@@ -89,24 +90,19 @@
     <script type="text/javascript" src="{{ url('/') }}/js/jquery.fancybox.min.js"></script>
     <script src="{{ url('/') }}/js/jQuizler.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/js/prism.js"></script>
+    <script type="text/javascript" src="{{ url('/') }}/js/jquery.countdown.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/js/script.js"></script>
 
 
 <script>
-    window.senderCallback = function() {
-        SenderWidget.init({
-            companyId: "i52140507387"
-        });
-    }
-</script>
-<script>
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
+    (function(d, s, id, companyId) {
+        var js, sjs = d.getElementsByTagName(s)[0];
         js = d.createElement(s);
         js.id = id;
-        js.src = "https://widget.sender.mobi/build/init.js";
-        fjs.parentNode.insertBefore(js, fjs, 'sender-widget');
-    })(document, 'script');
+        js.src = "https://widget.sender.mobi/connect/loader.js";
+        js.setAttribute('data-company-id', companyId);
+        sjs.parentNode.insertBefore(js, sjs);
+    })(document, "script", "sender-connect", "i52140507387");
 </script>
 </body>
 </html>

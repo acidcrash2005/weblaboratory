@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '1865852056986533',
+        'client_secret' => 'b3ed4942da0a75598ef1082e6612bdc2',
+        'redirect' => 'https://demo.weblaboratory.in.ua/facebook/calback',
+    ],
 ];

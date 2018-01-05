@@ -33,6 +33,8 @@
                          {{ csrf_field() }}
                          <a href="#" class="btn btn-success" onclick="statusSend(2); return false;">Принять</a>
                          <a href="#" class="btn btn-danger" onclick="statusSend(1); return false;">Отклонить</a>
+                         <a href="{{ url('courses/'.$HomeworkDialog->lesson->cours->slug, $HomeworkDialog->lesson->id) }}#dz" class="btn btn-info" target="_blank">ДЗ - {{$HomeworkDialog->lesson->title}}</a>
+
 
                          <script>
                              function statusSend(status) {

@@ -30,7 +30,7 @@ class BayMail extends Mailable
     public function build()
     {
         return $this
-            ->subject('Новый заказ '.$this->data->title)
+            ->subject('Новый заказ '.$this->data->email)
             ->from('weblaboratory@no-replay.com')
             ->view('email.bay');
     }

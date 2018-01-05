@@ -9,6 +9,7 @@
     </div>
     <div class="b-container">
         <div class="b-events">
+
             @foreach ($courses as $course)
                 <div class="b-event">
                     <div class="b-wraper">

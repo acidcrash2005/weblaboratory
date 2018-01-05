@@ -17,6 +17,11 @@ Route::get('/', 'HomeController@index');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    // Your overwrites here
+    Route::get('lesson/filter', ['uses' => 'Voyager\VoyagerController@filter', 'as' => 'filter']);
+    Route::get('user/filter', ['uses' => 'Voyager\VoyagerController@filter', 'as' => 'filter']);
+    Route::get('user-purchas/filter', ['uses' => 'Voyager\VoyagerController@filter', 'as' => 'filter']);
 });
 
 
@@ -51,6 +56,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('courses','UserpageController@courses');
     Route::get('courses/{slug}','UserpageController@curse');
     Route::get('courses/{slug}/{id}','UserpageController@cursePage');
+
+    Route::post('payform','PayesController@payform');
+
+    Route::get('user_product','UserpageController@products');
 });
 
 // Base Access
@@ -101,12 +110,33 @@ Route::get('userpay','UserController@userpay');
 // Bay
 Route::post('bay','PayesController@bay');
 Route::post('order','PayesController@order');
+Route::get('order_get/{id}','PayesController@order_get');
 
+// Pay API
 Route::get('pay', 'PayesController@index');
 Route::post('pay', 'PayesController@api');
+Route::post('wayforpay', 'PayesController@wayforpay');
+
 Route::get('redirect', 'PayesController@redirect');
+
+Route::get('pay_test', 'PayesController@test');
+
 
 // User Order
 Route::get('orders', 'OrdersController@index');
+Route::get('user_products','ProductsController@user_products');
+Route::get('user_products/view/{id}','ProductsController@user_product_view');
+
+// Shop link
+Route::get('products', 'ProductsController@index');
+Route::get('course/{id}', 'ProductsController@course');
+Route::get('product/{id}', 'ProductsController@product');
+
+
+
+Route::post('product_bay','PayesController@product_bay');
+
+
+Route::get('test', 'PayesController@test');
 
 

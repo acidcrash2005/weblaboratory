@@ -6,6 +6,7 @@ use App\Pay;
 use App\Payes;
 use App\Posts as Posts;
 use App\Orders as Orders;
+use App\Product as Product;
 use App\UserPurchase as UserPurchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,7 @@ class OrdersController extends Controller
 
     public function index(){
         $orders = Orders::where('user_id','=',Auth::user()->id)->get();
+
 
         return view('orders.index', compact('orders'));
     }

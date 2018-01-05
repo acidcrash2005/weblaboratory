@@ -17,6 +17,18 @@ body{
     position: relative;
     min-height: 100%;
 }
+.product-image img{
+    max-width: 100%;
+}
+.cours-list-main:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.sender-connect-list li:last-child{
+    display: none;
+}
 
 .b-container{
     max-width: 1255px;
@@ -37,6 +49,8 @@ body{
     position: absolute;
         top: 8px;
     left: 16px;
+    z-index: 5;
+
 }
 .b-user-block{
     position: absolute;
@@ -789,6 +803,11 @@ display: block;
     border: 1px solid #e5e5e5;
     margin-top: -40px;
     background-color: #fff;
+    width: 100%;
+    min-height: 380px;
+}
+.b-tabs{
+    min-height: 297px;
 }
 .b-persone{
     border: 1px solid #e5e5e5;
@@ -808,8 +827,8 @@ display: block;
 }
 .b-persone .b-name{
     font-family: Roboto;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 13px;
+    line-height: 20px;
     color: black;
     font-weight: 500;
     margin-bottom: 3px;
@@ -817,7 +836,13 @@ display: block;
 .b-persone .b-name span{
     color: #404043;
     font-weight: 400;
+    display: inline-block;
 }
+
+.b-persone .b-name .label{
+    color: #fff;
+}
+
 .b-persone .b-name img{
     vertical-align: middle;
     margin-right: 8px;
@@ -842,20 +867,25 @@ display: block;
     font-weight: 500;
     line-height: 24px;
 }
+.b-main-prize{
+    width: 100%;
+    padding: 15px;
+}
 .b-main-prize .b-img{
     height: 216px;
+    background-size: cover;
 }
 .b-main-prize .b-data{
     padding: 22px 25px;
 }
-.b-main-prize .b-data .b-title1{
+.b-main-prize  .b-title1{
     color: black;
     font-family: Roboto;
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 3px;
 }
-.b-main-prize .b-data .b-title2{
+.b-main-prize .b-title2{
     color: #2d2d2f;
     font-family: Roboto;
     font-size: 26px;
@@ -1571,6 +1601,13 @@ a.b-video:after{
     height: 150px;
     margin: auto;
     margin-bottom: 25px !important;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+}
+
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
 }
 
 @media (max-width: 1310px){

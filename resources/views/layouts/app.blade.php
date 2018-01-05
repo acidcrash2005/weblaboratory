@@ -12,21 +12,23 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url('/') }}/css/jQuizler.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/swiper.min.css">
+
     <link rel="stylesheet" href="{{ url('/') }}/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/main.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
-    
+
     <!-- Code style -->
     <link rel="stylesheet" href="{{ url('/') }}/css/prism.css">
 
 
     <!-- Scripts -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <script>
         window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
+                'csrfToken' => csrf_token(),
         ]); ?>
     </script>
 </head>
@@ -38,75 +40,85 @@
         <div class="b-search">
             <a href="#" class="b-search-button"></a>
         </div>
-        @if (Route::has('login'))
-            <!-- Authentication Links -->
+    @if (Route::has('login'))
+        <!-- Authentication Links -->
             @if (Auth::guest())
-                    <div class="b-login-block">
-                        {{--
-                        data-toggle="modal" data-target="#modalLogin"
-                        data-toggle="modal" data-target="#modalReg"
-                        --}}
-                        <a href="{{ url('/login') }}" >Войти</a>
-                        <span>/</span>
-                        <a href="{{ url('/register') }}" >Регистрация</a>
-                    </div>
-
+                <div class="b-login-block">
+                    {{--
+                    data-toggle="modal" data-target="#modalLogin"
+                    data-toggle="modal" data-target="#modalReg"
+                    --}}
+                    <a href="{{ url('/login') }}">Войти</a>
+                    <span>/</span>
+                    <a href="{{ url('/register') }}">Регистрация</a>
+                </div>
             @else
-                    <div class="b-avatar">
-                        <a href="#" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="/img/{{Auth::user()->avatar}}?w=42" alt=""/></a>
-                        {{--<ul class="b-drop-menu-ava dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">--}}
-                        {{--<li><a href="#">Мезенин Дмитрий<small>Личный кабинет</small></a></li>--}}
-                        {{--<li><a href="#" data-toggle="modal" data-target="#modalNewPass">Новый пароль</a></li>--}}
-                        {{--<li><a href="#">Выход</a></li>--}}
+                <div class="b-avatar">
+                    <a href="#" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="true"><img src="/img/{{Auth::user()->avatar}}?w=42" alt=""/></a>
 
-                        {{--
-                        <li><a href="#" data-toggle="modal" data-target="#modalNewPass">Админ панель</a></li>
-                        </ul>
-
-                        --}}
                     <ul class="b-drop-menu-ava dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                    <li><a href="{{ url('/profile') }}">{{ Auth::user()->email }}<small>Личный кабинет</small></a></li>
-                    @if (Auth::user()->role_id == 1)
+                        <li><a href="{{ url('/profile') }}">{{ Auth::user()->email }}
+                                <small>Личный кабинет</small>
+                            </a></li>
+                        @if (Auth::user()->role_id == 1)
                             <li><a href="{{ url('/admin') }}">Админ панель</a></li>
-                    @endif
-                    <li><a href="{{ url('/user_page') }}">Кабинет обучения</a></li>
+                        @endif
+                        <li><a href="{{ url('/user_page') }}">Кабинет обучения</a></li>
 
-                    <li>
+                        <li>
 
-                        <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            Выход
-                        </a>
+                            <a href="{{ url('/logout') }}"
+                               onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                Выход
+                            </a>
 
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </li>
-                </ul>
-                    </div>
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             @endif
 
         @endif
     </div>
 
     <div class="b-menu">
-        <?= Menu::display('main_menu'); ?>
-
-        {{--<ul>--}}
-            {{--<li><a href="#">Курсы</a></li>--}}
-            {{--<li><a href="#" class="b-star">IT Stars</a></li>--}}
-            {{--<li><a href="#">Блог</a></li>--}}
-            {{--<li><a href="#">О проекте</a></li>--}}
-        {{--</ul>--}}
+        <ul>
+            <li class="">
+                <a href="https://demo.weblaboratory.in.ua" target="_self" style="">
+                    <span>Домой</span>
+                </a>
+            </li>
+            {{--<li class="{{ Request::segment(1) === 'products' ? 'active' : null }} {{ Request::segment(1) === 'product' ? 'active' : null }}">--}}
+                {{--<a href="{{url('products')}}" target="_self" style="">--}}
+                    {{--<span>Продукты</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="">--}}
+                {{--<a href="https://demo.weblaboratory.in.ua/posts" target="_self" style="">--}}
+                    {{--<span>Блог</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="">--}}
+                {{--<a href="https://demo.weblaboratory.in.ua/about" target="_self" style="">--}}
+                    {{--<span>О проекте</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+        </ul>
     </div>
+
+
 </div>
 
 @yield('content')
 
 
-
 <div class="b-footer">
     <div class="b-container">
-        <div class="b-footer-log"><a href="/"><img src="{{ url('/') }}/img/logo_light1.png" width="140" alt=""/></a></div>
+        <div class="b-footer-log"><a href="/"><img src="{{ url('/') }}/img/logo_light1.png" width="140" alt=""/></a>
+        </div>
 
         <div class="b-footer-menu">
             <ul>
@@ -133,7 +145,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" aria-hidden="true" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                 <p class="b-modal-title">Новый пароль</p>
             </div>
             <div class="modal-body">
@@ -144,7 +157,8 @@
                                 <input type="password" class="form-control form-control1" placeholder="Пароль">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control form-control1" placeholder="Подтвердите пароль">
+                                <input type="password" class="form-control form-control1"
+                                       placeholder="Подтвердите пароль">
                             </div>
                         </div>
                     </div>
@@ -162,35 +176,29 @@
 </div>
 
 
+<!-- Scripts -->
+<script src="/vendor/tcg/voyager/assets/lib/js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/js/jquery.fancybox.min.js"></script>
+<script src="{{ url('/') }}/js/jQuizler.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/js/prism.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/js/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/js/script.js"></script>
 
-
-    <!-- Scripts -->
-    <script src="/vendor/tcg/voyager/assets/lib/js/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{{ url('/') }}/js/jquery.fancybox.min.js"></script>
-    <script src="{{ url('/') }}/js/jQuizler.js"></script>
-    <script type="text/javascript" src="{{ url('/') }}/js/prism.js"></script>
-    <script type="text/javascript" src="{{ url('/') }}/js/script.js"></script>
-
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
 <script>
-    window.senderCallback = function() {
-        SenderWidget.init({
-            companyId: "i52140507387"
-        });
-    }
-</script>
-<script>
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
+    (function (d, s, id, companyId) {
+        var js, sjs = d.getElementsByTagName(s)[0];
         js = d.createElement(s);
         js.id = id;
-        js.src = "https://widget.sender.mobi/build/init.js";
-        fjs.parentNode.insertBefore(js, fjs, 'sender-widget');
-    })(document, 'script');
+        js.src = "https://widget.sender.mobi/connect/loader.js";
+        js.setAttribute('data-company-id', companyId);
+        sjs.parentNode.insertBefore(js, sjs);
+    })(document, "script", "sender-connect", "i52140507387");
 </script>
 </body>
 </html>

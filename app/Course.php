@@ -15,4 +15,6 @@ class Course extends Model {
 
 
 
+
+
 }

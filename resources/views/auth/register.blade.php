@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

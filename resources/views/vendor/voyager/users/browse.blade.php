@@ -17,6 +17,16 @@
             <div class="col-md-12">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
+                        <form action="{{url('admin/user/filter')}}" class="form-inline">
+                            <input type="hidden" name="filter" value="user_id">
+                            <input type="hidden" name="slug" value="users">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="user_id" value="">
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-success" type="submit" value="Фильтр">
+                            </div>
+                        </form>
                         <table id="dataTable" class="table table-hover">
                             <thead>
                             <tr>
@@ -103,7 +113,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        @if (isset($dataType->server_side) && $dataType->server_side)
+                        @if (isset($dataType->server_side) && $dataType->server_side && !isset($_GET['filter']))
                             <div class="pull-left">
                                 <div role="status" class="show-res" aria-live="polite">Showing {{ $dataTypeContent->firstItem() }} to {{ $dataTypeContent->lastItem() }} of {{ $dataTypeContent->total() }} entries</div>
                             </div>

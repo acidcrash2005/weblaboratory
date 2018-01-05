@@ -35,6 +35,7 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
+
     public function products(){
         return $this->hasMany('App\UserPurchase');
     }
@@ -54,6 +55,5 @@ class User extends Authenticatable
     public function isBase(){
         return (\Auth::check() && \Auth::user()->role_id == 3 || \Auth::user()->role_id == 1 || \Auth::user()->role_id == 4 || \Auth::user()->role_id == 5 || \Auth::user()->role_id == 6);
     }
-
 
 }

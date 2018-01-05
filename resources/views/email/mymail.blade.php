@@ -5,12 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My mail</title>
+    <title>Регистрация на сайта Web Laboratory</title>
 </head>
 <body>
 <h2>Привествутем в Web Laboratory</h2>
 
 <p>Вы зарегестрировались как {{ $data['name'] }}</p>
+
+<p>Для получения доступа в ваш личный кабинет <br>
+перейдите по ссылке - <a href="{{ $_SERVER['HTTP_HOST']  }}/login">{{ $_SERVER['HTTP_HOST']  }}/login</a></p>
 <p>Ваши данные для доступа:
     <br> <strong>Логин:</strong> {{ $data['email'] }}
     <br> <strong>Пароль:</strong> {{ $data['password'] }}</p>

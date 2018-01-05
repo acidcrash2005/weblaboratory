@@ -17,14 +17,18 @@
             <div class="col-md-12">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
-                        <form action="" class="form-inline">
+                        <form action="{{url('admin/lesson/filter')}}" class="form-inline">
                             <input type="hidden" name="filter" value="cours_id">
+                            <input type="hidden" name="slug" value="lessons">
+                            <?
+                                $filter_items = \App\Course::get();
+                            ?>
                             <div class="form-group">
-                                {{--<select class="form-control" name="filter_data">--}}
-                                    {{--@foreach($filter_items as $item)--}}
-                                        {{--<option value="{{$item->id}}">{{$item->title}}</option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
+                                <select class="form-control" name="filter_data">
+                                    @foreach($filter_items as $item)
+                                        <option value="{{$item->id}}">{{$item->title}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <input class="btn btn-success" type="submit" value="Фильтр">

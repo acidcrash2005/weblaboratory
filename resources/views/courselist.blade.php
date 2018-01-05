@@ -7,12 +7,30 @@
 
       <div class="lesson-description">
          <div class="inner-container__main-container">
-            <h2 class="lesson-description__title">{{ $course->title }}</h2>
+             <h2 class="lesson-description__title">{{ $course->title }}</h2>
+             <div class="b-top-ciurse">
+
              @if ($course->nopay == 1)
                  @if (!empty($course->commet_price)) <span class="label label-danger">{{$course->commet_price}}</span>  @endif
                  <div class="price-course"><i class="fa fa-money" aria-hidden="true"></i> Цена курса: {{$course->price}} {{$course->valute}}</div>
+                     @if (!empty($course->sale_button))
+                         <a class="btn btn-success" target="_blank" href="{{$course->sale_button}}">
+                             Купить курс
+                         </a>
+                     @endif
+
+
              @endif
+             </div>
+
             {!! $course->text !!}
+
+             @if(!Auth::user()->isPremium() && !Auth::user()->isVip() && !Auth::user()->isBase())
+
+                     <a href="https://weblaboratory.in.ua/sale2017/" target="_blank"><img src="/img/sale1.png?w=700" alt=""></a>
+
+                 <br><br>
+             @endif
 
             <div class="b-type">
                <span class="start"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{ Carbon\Carbon::parse($course->start)->format('d.m.Y') }}</span>
@@ -32,7 +50,12 @@
                @endif
 
                 @if ($course->nopay == 1)
-                    @include('layouts.payments.price_select')
+                    {{--@include('layouts.payments.price_select')--}}
+                    @if (!empty($course->sale_button))
+                        <a class="btn btn-success" target="_blank" href="{{$course->sale_button}}">
+                            Купить курс
+                        </a>
+                    @endif
                 @endif
             </div>
          </div>

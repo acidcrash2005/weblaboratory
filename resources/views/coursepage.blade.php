@@ -66,7 +66,7 @@
                             {!! $lessone->tests !!}
                         </div>
 
-                        @if(Auth::user()->isBase() && $lessone->acess != 3 || $course->nopay != 1)
+                        @if($course->nopay != 1)
                             <form id="homework" class="homework-form" action="{{ url('/dz_post') }}#dz" method="POST"
                                   enctype="multipart/form-data">
                                 <h2 class="homework-form__title">Отправить домашнее задание</h2>
@@ -171,18 +171,16 @@
                                                 </div>
                                             </div>
                                         @endif
-
-
-
-
                                     @endforeach
                                 </div>
                             @endif
                         @else
-                            @if($lessone->acess == 3)
-                                <p class="message bg-danger">Это Демо версия урока! <br> Вы не можете отаправить домашнее задание на проверку. Для возможности отправлять ДЗ на првоверку вашему куратору, вам необходимо купить продукт, с доступом не ниже <strong>premium</strong>.</p>                                @include('layouts.payments.price_select')
+                            @if($lessone->acess == 3 && $course->nopay == 1)
+                                <p class="message bg-danger">Это Демо версия урока! <br> Вы не можете отаправить домашнее задание на проверку. Для возможности отправлять ДЗ на првоверку вашему куратору, вам необходимо купить продукт.</p>
+                                @include('layouts.payments.price_select')
                             @else
                                 <p class="message bg-danger">Ваша учетная запись <strong>{{ Auth::user()->role->name }}</strong>, вы не можете отправлять домашние задания на проверку, эта возможность открыта только для <strong>premium</strong> аккаунтов.</p>
+                                @include('layouts.payments.premium')
                             @endif
                         @endif
 

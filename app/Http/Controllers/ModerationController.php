@@ -32,10 +32,7 @@ class ModerationController extends Controller
 
             $HomeworkNew = HomeworkDialog::
             join('users', 'homework_dialogs.user_id', '=', 'users.id')->
-            where([
-                ['user_moderator','=',Auth::user()->email]
-            ])->
-            where('new_question','=',1)->orderBy('lesson_id','desc')->select('homework_dialogs.*')->get();
+            where('new_question','=',1)->orderBy('created_at','desc')->select('homework_dialogs.*')->get();
         }else{
             $HomeworkDialog = HomeworkDialog::
             join('users', 'homework_dialogs.user_id', '=', 'users.id')->
@@ -53,7 +50,7 @@ class ModerationController extends Controller
             where([
                 ['user_moderator','=',Auth::user()->email]
             ])->
-            where('new_question','=',1)->orderBy('lesson_id','desc')->select('homework_dialogs.*')->get();
+            where('new_question','=',1)->orderBy('created_at','desc')->select('homework_dialogs.*')->get();
         }
 
 

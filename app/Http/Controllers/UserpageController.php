@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Product;
 use App\User;
 use App\UserPurchase;
+use App\UserPurchasesProduct;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
@@ -32,14 +34,39 @@ class UserpageController extends Controller
 
         if (Auth::user()->role_id != 1 && Auth::user()->role_id != 6){
             $courses = UserPurchase::where('user_id','=',Auth::user()->id)->orderBy('course_id','asc')->get();
+            $products = UserPurchasesProduct::where('user_id','=',Auth::user()->id)->orderBy('product_id','asc')->get();
+
         }else{
             $courses = Course::all();
+            $products = Product::all();
         }
+
+
+        //if (Auth::user()->id == '49' || Auth::user()->id == '1'){
+            $userP = UserPurchase::where([
+                ['user_id','=', Auth::user()->id]
+            ])->count();
+
+            if ($userP == 0){
+                $coursesDemo = Course::where('demo','=',1)->get();
+            }else{
+                $coursesDemo = '';
+            }
+        //}
+
+
+//        $lessons = Lesson::whereDate('created_at', '2017-07-03')->count();
+//
+//
+//        print_r($lessons);
+
 
         $data = [
             'onAir' => $onAir,
             'HomeworkDialog' => $HomeworkDialog,
-            'courses' => $courses
+            'courses' => $courses,
+            'coursesDemo' => $coursesDemo,
+            'products' => $products
         ];
 
         return view('user_page', $data);
@@ -204,6 +231,15 @@ class UserpageController extends Controller
         }
 
     }
+
+
+    public function products(){
+
+
+        return view('uaser_products');
+    }
+
+
 
    
 }
